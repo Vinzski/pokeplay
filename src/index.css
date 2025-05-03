@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-red-600 hover:bg-red-700 text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
+  }
+
+  .btn-outline {
+    @apply border border-gray-600 hover:bg-gray-800;
+  }
+
+  .card {
+    @apply bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300;
+  }
+
+  .pokemon-card {
+    @apply card relative flex flex-col items-center hover:scale-105 cursor-pointer;
+  }
+
+  .pokemon-card-battle {
+    @apply card relative flex flex-col items-center border-2;
+  }
+
+  .input {
+    @apply bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500;
+  }
+
+  .card-flip {
+    @apply perspective-1000 w-full h-full;
+  }
+
+  .card-flip-inner {
+    @apply relative w-full h-full transition-transform duration-700 transform-style-3d;
+  }
+
+  .card-flip-front,
+  .card-flip-back {
+    @apply absolute w-full h-full backface-hidden;
+  }
+
+  .card-flip-back {
+    @apply transform rotate-y-180;
+  }
+
+  .flipped .card-flip-inner {
+    @apply transform rotate-y-180;
+  }
+
+  .type-badge {
+    @apply text-xs px-2 py-0.5 rounded-full text-white font-semibold uppercase;
+  }
+
+  .type-normal {
+    @apply bg-gray-400;
+  }
+  .type-fire {
+    @apply bg-red-500;
+  }
+  .type-water {
+    @apply bg-blue-500;
+  }
+  .type-grass {
+    @apply bg-green-500;
+  }
+  .type-electric {
+    @apply bg-yellow-400;
+  }
+  .type-ice {
+    @apply bg-blue-300;
+  }
+  .type-fighting {
+    @apply bg-red-700;
+  }
+  .type-poison {
+    @apply bg-purple-500;
+  }
+  .type-ground {
+    @apply bg-yellow-600;
+  }
+  .type-flying {
+    @apply bg-indigo-300;
+  }
+  .type-psychic {
+    @apply bg-pink-500;
+  }
+  .type-bug {
+    @apply bg-green-600;
+  }
+  .type-rock {
+    @apply bg-yellow-700;
+  }
+  .type-ghost {
+    @apply bg-purple-700;
+  }
+  .type-dark {
+    @apply bg-gray-700;
+  }
+  .type-dragon {
+    @apply bg-indigo-600;
+  }
+  .type-steel {
+    @apply bg-gray-500;
+  }
+  .type-fairy {
+    @apply bg-pink-300;
+  }
+
+  .stat-bar {
+    @apply h-2 rounded-full bg-gray-700;
+  }
+
+  .stat-bar-fill {
+    @apply h-full rounded-full;
+  }
+
+  .stat-hp {
+    @apply bg-green-500;
+  }
+  .stat-attack {
+    @apply bg-red-500;
+  }
+  .stat-defense {
+    @apply bg-blue-500;
+  }
+  .stat-special-attack {
+    @apply bg-purple-500;
+  }
+  .stat-special-defense {
+    @apply bg-teal-500;
+  }
+  .stat-speed {
+    @apply bg-yellow-500;
+  }
+
+  .health-bar {
+    @apply h-2 bg-gray-700 rounded-full overflow-hidden;
+  }
+
+  .health-bar-fill {
+    @apply h-full bg-gradient-to-r from-red-500 to-green-500 transition-all duration-500;
+  }
+
+  .battlefield {
+    @apply bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl p-4 shadow-lg;
+  }
+
+  .battle-card {
+    @apply w-full relative transition-all duration-300;
+  }
+
+  .battle-card.active {
+    @apply ring-2 ring-yellow-400 animate-pulse;
+  }
+
+  .battle-card.damaged {
+    @apply animate-shake;
+  }
+
+  .battle-card.fainted {
+    @apply opacity-50 grayscale;
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* Add these styles to enhance the battle cards and effects */
+  .card-game-field {
+    @apply bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl p-6 shadow-2xl;
+  }
+
+  .pokemon-card-tcg {
+    @apply card relative flex flex-col items-center transition-all duration-300 border-2 border-gray-600 shadow-lg;
+  }
+
+  .pokemon-card-tcg.active {
+    @apply border-yellow-400 ring-2 ring-yellow-400;
+  }
+
+  .pokemon-card-tcg.damaged {
+    @apply animate-shake;
+  }
+
+  .pokemon-card-tcg.fainted {
+    @apply opacity-50 grayscale;
+  }
+
+  .attack-flash {
+    @apply absolute inset-0 bg-red-500 opacity-75 animate-ping rounded-xl;
+  }
+
+  .bench-pokemon {
+    @apply w-16 h-16 rounded-lg flex items-center justify-center bg-gray-800 border-2;
+  }
+
+  .bench-pokemon.active {
+    @apply border-yellow-400;
+  }
+
+  .bench-pokemon.fainted {
+    @apply border-gray-700 opacity-50 grayscale;
+  }
+}
